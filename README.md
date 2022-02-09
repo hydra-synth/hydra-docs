@@ -1,5 +1,5 @@
 # Hydra
-![hydra](docs/assets/hydra-3-01.png)
+![hydra](assets/hydra-3-01.png)
 
 Set of tools for livecoding networked visuals. Inspired by analog modular synthesizers, these tools are an exploration into using streaming over the web for routing video sources and outputs in realtime.
 
@@ -8,7 +8,7 @@ Hydra uses multiple framebuffers to allow dynamically mixing, compositing, and c
 Note: experimental/in development. Right now only works on Chrome or Chromium, on machines with WebGL.
 I welcome pull requests as well as comments, ideas, and bugs in the issues section =]
 
-For more information, see [getting started](#Getting-Started), [getting started pdf en español](https://github.com/ojack/hydra/blob/master/docs/CODEX%20HYDRA.pdf), [tutorials and examples](./examples/README.md), [the complete list of functions](./docs/funcs.md), [gallery of user-generated sketches](https://twitter.com/hydra_patterns?lang=es), or a [a talk about the motivations for creating hydra](https://www.youtube.com/watch?v=cw7tPDrFIQg).
+For more information, see [getting started](#Getting-Started), [getting started pdf en español](https://github.com/ojack/hydra/blob/master/docs/CODEX%20HYDRA.pdf), [tutorials and examples](./examples/README.md), [the complete list of functions](funcs), [gallery of user-generated sketches](https://twitter.com/hydra_patterns?lang=es), or a [a talk about the motivations for creating hydra](https://www.youtube.com/watch?v=cw7tPDrFIQg).
 
 Note: this repository is for the online version of hydra. Other pieces of hydra are published as separate modules:
 
@@ -117,7 +117,7 @@ Each parameter can be defined as a function rather than a static variable. For e
 ```javascript
 osc(function(){return 100 * Math.sin(time * 0.1)}).out()
 ```
-modifies the oscillator frequency as a function of time. (Time is a global variable that represents the milliseconds that have passed since loading the page). This can be written more concisely using es6 syntax:
+modifies the oscillator frequency as a function of time. (Time is a global variable that represents the seconds that have passed since loading the page). This can be written more concisely using es6 syntax:
 ```javascript
 osc(() => (100 * Math.sin(time * 0.1))).out()
 ```
