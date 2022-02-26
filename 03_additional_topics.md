@@ -1,5 +1,55 @@
 # Additional Topics
 
+## live coding: evaluate separate lines or blocks of code
+
+Press ‘ctrl+enter’ to run a line of code.  
+Press ‘shift+ctrl+enter’ to evaluate a block of code.  
+Tip: You can switch between different lines of code for a live coding performance.
+
+```javascript
+osc().out() //run this first
+
+noise().mult(osc(10,0.1,10)).out() //now try this one
+```
+
+## feedback
+
+## a) arrays
+
+Arrays in Hydra are a sequenced collection of values. You can use this to change several parameters in time.
+
+```javascript
+osc(10,0.1,[10,0,2,0.5]).out()
+
+shape([3,4,200,2]).out()
+```
+
+## b) audio
+
+Make audio reactive visuals using. The audio signal works as an input parameter, you can multiplicate this value in order to change the amount of changes.
+
+```javascript
+osc(20,0.1, ()=>a.ff[0]*10).out()
+```
+
+
+## d) screen capture
+
+## e) atom-hydra
+
+## f) custom javascript functions
+
+## h) p5.js
+
+## loadScript()
+
+## g) custom glsl functions https://hydra-book.glitch.me/#/glsl 
+
+## f) hydra in a webpage
+
+
+## from old document:
+
 ## Array
 
 ## Passing functions as variables
