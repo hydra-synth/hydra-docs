@@ -16,7 +16,7 @@ Here we assume you are familiar with Git. If you are not familiar with it and wa
 
 1. Fork and clone the repository https://github.com/hydra-synth/hydra-docs
 1. If the language you contribute is not supported at all, create a folder with language code (e.g., `/ja` for Japanese). At the moment we don't use region code (e.g., `fr-ca` for French Canadian) - but feel free to suggest if that is necessary!
-1. For translating articles existing in English (e.g., `02_getting_started.md`), create a file under the language folder with the same name (e.g., `/ja/02_getting_started.md`). For original contents, feel free to name it as you like :)
+1. For translating articles existing in English (e.g., `getting_started.md`), create a file under the language folder with the same name (e.g., `/ja/getting_started.md`). For original contents, feel free to name it as you like :)
 1. Translate the document!  
 Tip 1: files are written in markdown format. It's important to keep the same structure as the English one (like `##` tag for headings). If you couldn't finish translating the whole file, leave remaining headings and texts in English so someone else or you can continue editing later.  
 Tip 2: code blocks should have `javascript` tag as seen in the files in English so that they will be rendered with an embedded editor.

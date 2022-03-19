@@ -1,7 +1,7 @@
-* [Guides](/)
-  * [What is Hydra?](/01_what_is_hydra)
-  * [Getting Started](/02_getting_started)
-  * [Additional Topics](/03_additional_topics)
+* [What is Hydra?](/)
+* [Getting Started](/getting_started)
+* Guides
+  * [Additional Topics](/additional_topics)
   * In-depth Guides
 * [API](https://hydra.ojack.xyz/api/)
 * Contributing
