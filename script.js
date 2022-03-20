@@ -167,8 +167,10 @@ class CodeMirrorApp extends Torus.StyledComponent {
       position: static;
       background-color: #444;
       width: 100%;
+      height: 100%;
       max-width: 512px;
       .editor-menu {
+        position: relative;
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
@@ -178,17 +180,25 @@ class CodeMirrorApp extends Torus.StyledComponent {
       }
       .editor-container {
         font-family: monospace;
-        position: relative;
+        position: absolute;
+        height: 100%;
+        @media only screen and (max-width: 1200px) {
+          position: relative;
+          height: 10em;
+        }
         margin: 0;
         padding: 0;
         box-sizing: border-box;
         z-index: 1;
-        width: 100%;
-        height: 10em;
+        //width: 100%;
         background-color: black;
       }
       .editor-console {
-        position: relative;
+        position: absolute;
+        bottom: 0;
+        @media only screen and (max-width: 1200px) {
+          position: relative;
+        }
         font-family: monospace;
         font-variant-ligatures: no-common-ligatures;
         color: white;
@@ -268,20 +278,31 @@ class CodeApp extends Torus.StyledComponent {
   }
   styles() {
     return css`
-      position: relative;
       box-sizing: border-box;
-      margin: 50px 0;
+      position: relative;
       width: 100%;
-      height: auto;
+      margin: 50px 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      .placeholder {
-        width: 100%;
-        height: 512px;
+      .boxes {
+        position: relative;
+        // width: 100%;
+        height: auto;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-direction: row;
+        align-items: stretch;
+        @media only screen and (max-width: 1200px) {
+          flex-direction: column;
+        }
+      }
+      .placeholder {
+        position: relative;
+        width: 512px;
+        height: 512px;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
       }
       .not-supported-message {
         background-color: black;
@@ -304,8 +325,10 @@ class CodeApp extends Torus.StyledComponent {
     }
     return jdom`
     <div>
-      ${ placeholder }
-      ${ this.cmApp.node }
+      <div class="boxes">
+        ${ placeholder }
+        ${ this.cmApp.node }
+      </div>
     </div>
     `;
   }
