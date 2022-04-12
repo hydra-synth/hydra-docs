@@ -347,8 +347,8 @@ window.$docsify = {
     function(hook, vm) {
       hook.afterEach((html, next) => {
         html = html.replace(
-          /data-lang="javascript"/gi,
-          'data-lang="javascript" class="hydra-code"'
+          /data-lang="hydra"/gi,
+          'data-lang="hydra" class="hydra-code"'
         );
         next(html);
       });

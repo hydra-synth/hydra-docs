@@ -30,13 +30,13 @@ osc()
 
 - Run your first line of code: ‘osc().out()’ Pressing  ‘shift + ctrl + enter’
 
-```javascript
+```hydra
 osc().out()
 ```
 
 - Change inside parameters like ‘osc(2).out()’
 
-```javascript
+```hydra
 osc(2).out()
 ```
 
@@ -53,7 +53,7 @@ Oh no! You have an error :( but don’t worry, if you have an error you’ll not
 
 
 ## c) Adding transformations
-```javascript
+```hydra
 osc().rotate().out()
 ```
 
@@ -88,7 +88,7 @@ src(s3).out(o2)
 ## e) Multiple outputs 
 Multiple outputs can be used, added or combined to each other. The available outputs are `.out(o0)` - `.out(o1)` - `.out(o2)` - `out(o3)`. To see all together use `render()`, to choose a specific output, for example `render(o1)`. Default buffer is `.out(o0)` = `.out() `
 
-```javascript
+```hydra
 gradient(1).out(o0)
 osc().out(o1)
 voronoi().out(o2)
@@ -98,7 +98,7 @@ render()
 ![](https://i.imgur.com/G4fCaLz.jpg)
 *Trick: try to create different sketches and switch them in your live performance or even combine them.*
 
-```javascript
+```hydra
 gradient(1).out(o0)
 osc().out(o1)
 render(o0) //switch render output
@@ -126,11 +126,11 @@ osc().mult(src(o1)).out() //subtract light. Black intensity as a priority.
 `modulate()` An analogy in the real world, would be looking through a texture glass window.
 `modulate()` does not change color or luminosity but shifts pixels by another texture; imagine looking through a bumpy glass window.
 
-```javascript
+```hydra
 osc().modulate(noise(3)).out()
 ```
 ### Try modulate with a camera!
-```javascript
+```hydra
 s0.initCam()
 
 shape().modulate(src(s0)).out()
