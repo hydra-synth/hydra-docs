@@ -283,15 +283,20 @@ class CodeApp extends Torus.StyledComponent {
       box-sizing: border-box;
       position: relative;
       width: 100%;
-      margin: 50px 0;
+      margin: 100px 0;
       display: flex;
       flex-direction: row;
+      justify-content: center;
       align-items: stretch;
       @media only screen and (max-width: 1200px) {
         flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        align-content: center;
       }
       .placeholder {
         position: relative;
+        min-width: 512px;
         width: 512px;
         height: 512px;
         // display: flex;

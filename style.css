@@ -62,6 +62,11 @@ p > img {
   color: white;
 }
 
+.markdown-section pre[data-lang=javascript],
+.markdown-section pre[data-lang=javascript] > * {
+  background-color: #151515;
+}
+
 .markdown-section pre[data-lang=javascript].hydra-code {
   margin-top: 512px;
 }
