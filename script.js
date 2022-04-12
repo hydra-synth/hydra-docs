@@ -164,11 +164,17 @@ class CodeMirrorApp extends Torus.StyledComponent {
   }
   styles() {
     return css`
-      position: static;
+      position: relative;
       background-color: #444;
       width: 100%;
-      height: 100%;
+      height: 512px;
+      @media only screen and (max-width: 1200px) {
+        position: relative;
+        height: 10em;
+      }
       max-width: 512px;
+      display: flex;
+      flex-direction: column;
       .editor-menu {
         position: relative;
         display: flex;
@@ -180,17 +186,13 @@ class CodeMirrorApp extends Torus.StyledComponent {
       }
       .editor-container {
         font-family: monospace;
-        position: absolute;
+        position: relative;
         height: 100%;
-        @media only screen and (max-width: 1200px) {
-          position: relative;
-          height: 10em;
-        }
         margin: 0;
         padding: 0;
         box-sizing: border-box;
         z-index: 1;
-        //width: 100%;
+        width: 100%;
         background-color: black;
       }
       .editor-console {
@@ -283,18 +285,10 @@ class CodeApp extends Torus.StyledComponent {
       width: 100%;
       margin: 50px 0;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      .boxes {
-        position: relative;
-        // width: 100%;
-        height: auto;
-        display: flex;
-        flex-direction: row;
-        align-items: stretch;
-        @media only screen and (max-width: 1200px) {
-          flex-direction: column;
-        }
+      flex-direction: row;
+      align-items: stretch;
+      @media only screen and (max-width: 1200px) {
+        flex-direction: column;
       }
       .placeholder {
         position: relative;
@@ -325,10 +319,8 @@ class CodeApp extends Torus.StyledComponent {
     }
     return jdom`
     <div>
-      <div class="boxes">
-        ${ placeholder }
-        ${ this.cmApp.node }
-      </div>
+      ${ placeholder }
+      ${ this.cmApp.node }
     </div>
     `;
   }
