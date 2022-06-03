@@ -26,19 +26,18 @@ At the right up corner you will find a toolbar with these buttons:
 
 ## First line of code
 
-Use the ***clear all button*** ![](https://i.imgur.com/zQLjhBs.png) to erase the previous sketch.
+Use the ***clear all button*** <img src="https://i.imgur.com/zQLjhBs.png" alt="drawing" width="40" style="display:inline;vertical-align:middle;"/>
+to erase the previous sketch.
 
 Then, type or paste the following in the editor:
 ```javascript
 osc().out()
 ```
-Press the ***run button*** ![](https://i.imgur.com/sm5d3VX.png) to run this code and update the visuals on the screen. You should see some scrolling stripes appear in the background.
+Press the ***run button***  <img src="https://i.imgur.com/sm5d3VX.png" alt="drawing" width="40" style="display:inline;vertical-align:middle;"/> to run this code and update the visuals on the screen. You should see some scrolling stripes appear in the background.
 
 ```hydra
 osc().out()
 ```
-
-![](https://i.imgur.com/ZfgVjJZ.gif)
 
 This creates a visual oscillator. Try modifying the parameters of the oscillator by putting a number inside the parentheses of `osc()`, for example ```osc(10).out()```.
 
@@ -59,13 +58,10 @@ osc(5,-0.126,0.514).rotate().out()
 ```
 
 As you can see, you have first an input source `osc()` and things that come after (`rotate()` and `out()`) are connected with a dot ‘.’
-In this sense, Hydra is inspired by modular synthesis.
-Analogue modular synthezisers used different kind of input electric wave signs, patching cables to different filters this signs were modified in order to create different visuals.
+In this sense, Hydra is inspired by [modular synthesis](https://en.wikipedia.org/wiki/Modular_synthesizer).
 Instead of connecting cables you connect different kinds of javascript functions.  
 ![](https://i.imgur.com/RBRxeiL.jpg)
 ###### source [Sandin Image Processor](https://en.wikipedia.org/wiki/Sandin_Image_Processor)
-###### more about [modular synthesizers](https://en.wikipedia.org/wiki/Modular_synthesizer)
-
 
 You can continue adding transformations to this chain of functions. For example:  
 ```hydra
