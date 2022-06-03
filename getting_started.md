@@ -14,31 +14,26 @@ To get started, open the the [hydra web editor](https://hydra.ojack.xyz/) in a s
 
 You will see some colorful visuals in the background with text on top in the top left of the screen. The text is code that generates the visuals behind it. 
 
-At the right up corner you will find a toolbar with these buttons:
-
+At the right up corner you will find a toolbar with these buttons: 
 ![](https://i.imgur.com/iCG8Lrq.png)
-1. **Play button.** You can use it to run the code.
-2. Upload your sketch to Hydra's gallery **(not working for the moment)**
-3. **Clear all** and start from scratch.
-4. **Random sketch examples**. It shows random sketch examples. Always it is a good way to learn Hydra by studying someone elses code.
-5. Make random change, **dices** modify values automatically. Try it with some of the sketches examples.
-6. **Help menu** with useful links.
+1. **run all code** Runs all code on the page (same as typing *ctrl+shift+enter)
+2. **upload to gallery** upload a sketch to Hydra's gallery and create a shorter URL
+3. **clear all** resets the environment and clears text from the editor
+4. **show random sketch**. Loads random sketch examples. Always it is a good way to learn Hydra by studying someone elses code.
+5. **make random change** **dices** modify values automatically. Try it with some of the sketch examples.
+6. **show info window** show overlay window with help text and links
 
 
 ## First line of code
 
-Use the ***clear all*** button to erase the previous sketch.
+Use the ***clear all button*** ![](https://i.imgur.com/zQLjhBs.png) to erase the previous sketch.
 
-![](https://i.imgur.com/zQLjhBs.png) 
-###### _clear all_ button
 Then, type or paste the following in the editor:
 ```javascript
 osc().out()
 ```
-Press the ***run*** button to run this code and update the visuals on the screen. You should see some scrolling stripes appear in the background.
+Press the ***run button*** ![](https://i.imgur.com/sm5d3VX.png) to run this code and update the visuals on the screen. You should see some scrolling stripes appear in the background.
 
-![](https://i.imgur.com/sm5d3VX.png)
-###### run button
 ```hydra
 osc().out()
 ```
@@ -47,7 +42,7 @@ osc().out()
 
 This creates a visual oscillator. Try modifying the parameters of the oscillator by putting a number inside the parentheses of `osc()`, for example ```osc(10).out()```.
 
-Re-run the code by pressing the ***run*** button again, and seeing the visuals update. Try adding other values to control the oscillator's `frequency`, `sync`, and `color offset`.
+Re-run the code by pressing the ***run button*** again, and seeing the visuals update. Try adding other values to control the oscillator's `frequency`, `sync`, and `color offset`.
 
 ```hydra
 osc(5, -0.126, 0.514).out()
