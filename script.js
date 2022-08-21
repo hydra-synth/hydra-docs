@@ -258,7 +258,7 @@ class CodeApp extends Torus.StyledComponent {
       (entries) => {
         if (entries[0].isIntersecting === true) {
           hush();
-          bpm = 0;
+          bpm = 30;
           fps = undefined;
           speed = 1;
           solid(0, 0, 0, 0).out(o0);
