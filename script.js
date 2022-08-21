@@ -87,7 +87,7 @@ class CodeMirrorApp extends Torus.StyledComponent {
 
     this.evalCode = c => {
       try {
-        let result = eval(c);
+        let result = hydraApp.hydra.sandbox.eval(c);
         if (result === undefined) result = "";
         this.console = result;
         this.consoleClass = "normal";
