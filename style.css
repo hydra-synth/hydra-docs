@@ -12,6 +12,18 @@ body, .sidebar {
   color: white;
 }
 
+table{
+  width: 100%;
+  table-layout: fixed;
+  padding: 0;
+  margin: 0;
+  background-color: #151515;
+}
+
+th{
+  background-color: black;
+}
+
 .CodeMirror {
   position: relative;
   margin: 0;
@@ -82,6 +94,19 @@ p > img {
   color: #99cc99;
   background-color: black;
   border: none;
+}
+
+.markdown-section table{
+  display: table;
+}
+
+.markdown-section tr:nth-child(2n) {
+  background-color: black;
+}
+
+.markdown-section table tbody tr td pre[data-lang]{
+  margin: 0;
+  border: 0;
 }
 
 .token.function {
