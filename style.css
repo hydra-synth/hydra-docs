@@ -74,8 +74,8 @@ p > img {
   color: white;
 }
 
-.markdown-section pre[data-lang=javascript],
-.markdown-section pre[data-lang=javascript] > * {
+.markdown-section pre[data-lang],
+.markdown-section pre[data-lang] > * {
   background-color: #151515;
 }
 
