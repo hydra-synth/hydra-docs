@@ -269,7 +269,7 @@ class CodeApp extends Torus.StyledComponent {
           this.placeholder.appendChild(hydraApp.node);
         }
       },
-      { threshold: [0.5] }
+      { threshold: [0.8] }
     );
 
     observer.observe(this.placeholder);
