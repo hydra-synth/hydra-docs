@@ -24,6 +24,15 @@ th{
   background-color: black;
 }
 
+.authors {
+  font-style: italic;
+  font-size: smaller;
+  font-weight: 300;
+  text-align: right;
+}
+
+/* codemirror */
+
 .CodeMirror {
   position: relative;
   margin: 0;
