@@ -194,6 +194,7 @@ class CodeMirrorApp extends Torus.StyledComponent {
         z-index: 1;
         width: 100%;
         background-color: black;
+        overflow: hidden;
       }
       .editor-console {
         position: absolute;
