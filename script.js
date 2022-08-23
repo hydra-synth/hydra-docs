@@ -5,14 +5,14 @@
 class HydraApp extends Torus.StyledComponent {
   init() {
     this.canvas = document.createElement("CANVAS");
-    this.canvas.width = 512;
-    this.canvas.height = 512;
+    this.canvas.width = 360;
+    this.canvas.height = 360;
     this.hydra = new Hydra({
       canvas: this.canvas,
       detectAudio: false,
       enableStreamCapture: false,
-      width: 512,
-      height: 512,
+      width: 360,
+      height: 360,
     });
   }
   styles() {
@@ -167,13 +167,13 @@ class CodeMirrorApp extends Torus.StyledComponent {
       position: relative;
       background-color: #444;
       width: 100%;
-      height: 512px;
+      height: 360px;
       max-width: 100%;
       overflow-x: hidden;
-      @media only screen and (max-width: 1200px) {
+      @media only screen and (max-width: 1000px) {
         position: relative;
         height: 10em;
-        max-width: 512px;
+        max-width: 360px;
       }
       display: flex;
       flex-direction: column;
@@ -285,12 +285,12 @@ class CodeApp extends Torus.StyledComponent {
       box-sizing: border-box;
       position: relative;
       width: 100%;
-      margin: 100px 0;
+      margin: 75px 0;
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: stretch;
-      @media only screen and (max-width: 1200px) {
+      @media only screen and (max-width: 1000px) {
         flex-direction: column;
         flex-wrap: nowrap;
         align-items: center;
@@ -298,9 +298,9 @@ class CodeApp extends Torus.StyledComponent {
       }
       .placeholder {
         position: relative;
-        min-width: 512px;
-        width: 512px;
-        height: 512px;
+        min-width: 360px;
+        width: 360px;
+        height: 360px;
         // display: flex;
         // justify-content: center;
         // align-items: center;
@@ -310,7 +310,7 @@ class CodeApp extends Torus.StyledComponent {
         color: white;
         font-size: 1.25em;
         width: 100%;
-        max-width: 512px;
+        max-width: 360px;
       }
     `;
   }
