@@ -62,7 +62,7 @@ p > img {
   font-weight: 700;
 }
 
-.markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4 {
+.markdown-section h1, .markdown-section h2{
   text-transform: uppercase;
 }
 
@@ -80,7 +80,7 @@ p > img {
 }
 
 .markdown-section pre[data-lang=javascript].hydra-code {
-  margin-top: 512px;
+  margin-top: 360px;
 }
 
 .markdown-section code, .markdown-section pre {
