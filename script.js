@@ -168,6 +168,8 @@ class CodeMirrorApp extends Torus.StyledComponent {
       background-color: #444;
       width: 100%;
       height: 512px;
+      max-width: 100%;
+      overflow-x: hidden;
       @media only screen and (max-width: 1200px) {
         position: relative;
         height: 10em;
