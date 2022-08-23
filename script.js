@@ -171,8 +171,8 @@ class CodeMirrorApp extends Torus.StyledComponent {
       @media only screen and (max-width: 1200px) {
         position: relative;
         height: 10em;
+        max-width: 512px;
       }
-      max-width: 512px;
       display: flex;
       flex-direction: column;
       .editor-menu {
