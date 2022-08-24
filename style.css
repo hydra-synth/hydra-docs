@@ -1,14 +1,16 @@
 body {
   font-family: 'Chivo', sans-serif;
   font-weight: 400;
+  background-color: black;
+  color: white;
 }
 
 main {
   height: fit-content;
 }
 
-body, .sidebar {
-  background-color: black;
+.sidebar {
+  background-color: #111;
   color: white;
 }
 
@@ -81,6 +83,38 @@ p > img {
 
 .sidebar ul li a {
   color: white;
+}
+
+.sidebar {
+  padding-top: 0;
+}
+
+.sidebar-toggle {
+  background: rgb(50,50,50,0.5) !important;
+  background: linear-gradient(60deg, rgba(50,50,50,0.5) 80px, rgba(0,0,0,0) 100%) !important;
+}
+
+.search{
+  padding: 12px !important;
+  border-bottom: 1px solid #777 !important;
+}
+
+.sidebar hr{
+  border-color: #666;
+  margin: 16px;
+}
+
+.sidebar>h1{
+  font-size: 1.6rem;
+}
+
+input{
+  background-color: #333;
+  color: white;
+}
+
+input::placeholder {
+  color: #cccccc;
 }
 
 .anchor span {
