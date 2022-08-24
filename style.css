@@ -65,7 +65,7 @@ p > img {
 }
 
 .markdown-section{
-  padding-bottom: calc(50vh - 360px - 75px + 5px);
+  padding-bottom: calc(50vh - 360px + 5px);
 }
 
 .markdown-section em {
