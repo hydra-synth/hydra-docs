@@ -71,7 +71,7 @@ Hydra (the editor) also has built-in streaming. You can stream the output of you
 
 On your Hydra editor, you can find a pre-defined object called `pb` (as in patch-bay). This object basically represents the connection of your Hydra editor instance to all others hosted on the same server. When you want to share your stream to someone else you'll have to give your Hydra session a name. Do this using the `pb.setName()` function and by passing in some string as the name. For example: `pb.setName('myverycoolsession')`. If you want someone else to stream to you, ask them to set a name as such and share it with you.
 
-You can see online sessions using the function `pb.list()`, which will return an array of names.
+You can see online sessions using the function `pb.list()`, which will return an Array of names.
 
 ### Starting to stream
 

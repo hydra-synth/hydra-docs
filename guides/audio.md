@@ -10,7 +10,7 @@ In order to achieve audio reactivity, Hydra makes use of a JavaScript library ca
 Sound travels through air as a wave, that's fairly common knowledge. This basically means that sound is nothing more than air pressure going up and down through time very fast in weird ways. But we don't experience sound simply as something that goes on and off like a light flickering, many of the sounds we are used to have some sort of frequency or repetition that we interpret as higher or lower pitch. 
 When we listen to a song we can easily differentiate the bass guitar from the singer even if both are playing at the same time. If there are two vocals being sung at the same time, even if by the same person, we can differentiate them because of how high or low they are (also because of timbre, but that doesn't matter at all right now).
 When we talk about the audio spectrum, we are talking about the many frequencies a sound can cover and we humans can hear.
-What a fast fourier transform does is basically hear some ongoing sound and interpret how present the sound is on different parts of this spectrum. For example, if we separate the audio spectrum in 3 equal parts and play a drumkit, the bass drum will have more presence on the lower side of the spectrum, while a hi-hat will surely have most of its presence on the higher third part of the spectrum.
+What a fast fourier transform does is basically hear some ongoing sound and interpret how present the sound is on different parts of this spectrum. For example, if we separate the audio spectrum in 3 equal parts and play a drum-kit, the bass drum will have more presence on the lower side of the spectrum, while a hi-hat will surely have most of its presence on the higher third part of the spectrum.
 
 ### a.show() & a.hide()
 
@@ -34,7 +34,7 @@ osc(20,.1,2)
 
 See how if you make a deep "O" sound into the mic, the rotation will be strong and the saturation won't be affected as much. Also try to make a high "S" sound, you'll see the exact opposite.
 
-Note how we use brackets to call an element in an array, and that we start counting from 0.
+Note how we use brackets to call an element in an Array, and that we start counting from 0.
 
 #### a.bins & a.prevBins
 
@@ -61,7 +61,7 @@ Hydra also has a simple beat detection algorithm. You can change this function t
 
 ### Reacting to music
 
-As we've seen, Hydra takes your microphone as an input, not your desktop audio. Those interested in using a music player or a DAW's output as an audio input will have to delve into virtual audio routing.
+As we've seen, Hydra takes your microphone as an input, not your desktop audio. Those interested in using a music player or a DAW's output as an audio input will have to delve into virtual audio routing. Users with physical sound interfaces with multiple inputs and outputs might prefer physically routing an output to an input and set that input as the default microphone on Chrome.
 
 ---
 

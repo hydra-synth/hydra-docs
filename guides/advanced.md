@@ -29,7 +29,7 @@ gradient()
 
 #### Changing the global bpm for Arrays
 
-To change how rapidly Hydra switches from element to element of any Array, you can change the `bpm` variable (meaning beats per minute) to any value you desire:
+To change how rapidly Hydra switches from element to element of all Arrays, you can change the `bpm` variable (meaning beats per minute) to any value you desire:
 
 ```hydra
 bpm = 138 // change me !
@@ -41,13 +41,15 @@ gradient()
 
 The default value for `bpm` is 30.
 
+When livecoding visuals at the same time that music is playing, it can be useful to have a tapping metronome opened to keep track of the BPM being played and set this variable as such.
+
 #### Changing the speed of a specific Array
 
-Hydra adds a couple of methods to all arrays to be used inside Hydra. `.fast` will control the speed of the array from which it is called. It receives a Number as argument, by which the global speed will be multiplied. So calling `.fast(1)` on an Array is the same as nothing. Higher values will generate faster switching, while lower than 1 values will be slower.
+Hydra adds a couple of methods to all Arrays to be used inside Hydra. `.fast` will control the speed at which Hydra takes elements from the Array. It receives a Number as argument, by which the global speed will be multiplied. So calling `.fast(1)` on an Array is the same as nothing. Higher values will generate faster switching, while lower than 1 values will be slower.
 
 ```hydra
 bpm = 45
-osc([20,30,50,60],.1,[0,1.5].fast(1.5))
+osc([20,30,50,60],.1,[0,1.5].fast(1.5)) // 50% faster
     //.rotate([-.2,0,.2].fast(1)) // try different speeds for each array
 	.out()
 ```
@@ -118,7 +120,7 @@ The following are the available easing functions:
 * easeInOutQuint
 * sin: sinusoidal shape
 
-#### Note on storing Arrays on variables
+#### Note on storing Arrays on variables / functions
 
 Storing an Array in a variable can lead to some trouble as soon as you apply some of the just-mentioned functions to it. Since Arrays are Objects, each time you call your variable, you'll be calling the same Object. If you apply some speed via `.fast` or smoothness via `.smooth` somewhere in your patch, and then use the same variable, all the following uses of the Array will also have these effects applied to them. For example
 
@@ -321,7 +323,7 @@ Still, always keep in mind while using iteration, that the more effects and iter
 
 #### .forEach, .map and .reduce
 
-Those familiar with more array focused programming languages such as Python or Haskell, or more functional structures even inside JavaScript, may be used to iterating using the `forEach`, `map` and/or `reduce` structures. Where given an Array, we use each value to alter something or to reduce the entire array into a desired result.
+Those familiar with more array focused programming languages such as Python or Haskell, or more functional structures even inside JavaScript, may be used to iterating using the `forEach`, `map` and/or `reduce` structures. Where given an Array, we use each value to alter something or to reduce the entire Array into a desired result.
 Practically anything done with these functions can be done using `for` loops, so if you are new to these or you just don't like how they look, then there really is no need for you to learn these, even if you're super interested in iteration.
 
 ##### .forEach
@@ -358,7 +360,7 @@ result().out()
 
 ##### .map 
 
-Haters of state (non-political) will prefer `.map` any day over `.forEach`. Looking at the example for `.forEach`, we see were creating a texture and adding it to an accumulator _for each_ element in the array. We can separate the texture generating part of the code and the blending part using `.map` to get an array of textures and `.reduce` to blend them:
+Haters of state (non-political) will prefer `.map` any day over `.forEach`. Looking at the example for `.forEach`, we see were creating a texture and adding it to an accumulator _for each_ element in the Array. We can separate the texture generating part of the code and the blending part using `.map` to get an array of textures and `.reduce` to blend them:
 
 ```hydra
 text = "Hydra >:]"

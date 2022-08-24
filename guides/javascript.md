@@ -44,7 +44,7 @@ noise(2,.5)
 
 Variables are spaces of memory in your computer that you reserve to store some value. Each variable you use will have a unique symbolic name. This definition may sound complicated, but you'll see it's really as intuitive as it can be. You may remember variables from mathematics being letters that represent some sort of number. This is precisely the same, you just choose some name and assign some number (or other type of information) to it.
 
-```javascript
+```hydra
 freq = 50 // change this value and see what happens
 osc(freq)
 	.diff(osc(freq).rotate())
@@ -61,7 +61,7 @@ In the previous example, `freq` is the name of the variable and `50` is its valu
 
 Variable names can't start with numbers, they start with letters and it's conventional in JavaScript to start with a lowercase. When the name of your variable is more than one word, it's also conventional to write them as such:
 
-```javascript
+```hydra
 feedbackIntensity = .3
 src(o0)
 	.colorama(feedbackIntensity/10)
@@ -74,7 +74,7 @@ However this is just a convention, you may find other ways of naming your variab
 
 ### Global variables
 
-When you declare a variable in Hydra, it declares it for you on the global scope. You can imagine a scope as a piece of code that works on its own and has its own variables. However, the global scope is basically a bunch of variables and functions that can be accessed from anywhere (functions such as `osc()` are declared in the global scope so that you can use them by just calling them, no matter where, for example).
+When you declare a variable in Hydra, it declares it for you on the global scope. You can imagine a [scope](https://developer.mozilla.org/docs/Glossary/Scope) as a piece of code that works on its own and has its own variables. However, the global scope is basically a bunch of variables and functions that can be accessed from anywhere (functions such as `osc()` are declared in the global scope so that you can use them by just calling them, no matter where, for example).
 We can make it explicit that we want something on the global scope. In JavaScript, since it's made to run on a browser, we do this by declaring variables on the `window` object (what is an object, you can find out below), which represents the browser's window.
 
 ```javascript
@@ -105,20 +105,31 @@ This knowledge will come in handy if you start coding functions for example, sin
 
 ## Arrays
 
-Arrays are basically lists of values. Instead of declaring 100 variables to represent different values of the same concept you can just use a list of values. The key thing is these values are related, they will serve the same purpose somewhere in our code. If they are not related, using a list isn't really useful, we'll be just confusing ourselves thinking about where in the list did we put this or that other value. Here's an example of an array:
+[Arrays](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array) are basically lists of values. Instead of declaring 100 variables to represent different values of the same concept you can just use a list of values. The key thing is these values are related, they will serve the same purpose somewhere in our code. If they are not related, using a list isn't really useful, we'll be just confusing ourselves thinking about where in the list did we put this or that other value. Here's an example of an Array:
 
-```javascript
+```hydra
 rots = [0,.5,1.2,2.2,3] // this is how we declare an array
 osc().rotate(rots[0]) // this is how we call an element from an array
 	.diff(osc().rotate(rots[2]))
 	.out()
 ```
 
-The example above isn't that useful in a Hydra context, but we hope it illustrates the basics of how an array is created and used.
-Arrays in JavaScript (and in most programming languages) start counting their elements from 0 and not from 1. So if you want the first element of the `rots` array, you need to call `array[0]` instead of `array[1]`! Same goes for every element. If you want the third element call `array[2]`, and so on. Remember that nth element = array[n-1]
+The example above isn't that useful in a Hydra context, but we hope it illustrates the basics of how an Array is created and used.
+Arrays in JavaScript (and in most programming languages) start counting their elements from 0 and not from 1. So if you want the first element of the `rots` Array, you need to call `array[0]` instead of `array[1]`! Same goes for every element. If you want the third element call `array[2]`, and so on. Remember that `nth element = array[n-1]`
 
 
-Arrays in Hydra can be used to create dynamic inputs.
+### Arrays as sequences
+
+Arrays in Hydra can be used as inputs. Hydra takes the list of values and makes a sequence out of them:
+
+```hydra
+rots = [0,.5,1.2,2.2,3]
+osc().rotate([-.5,.5])
+	.diff(osc().rotate(rots))
+	.out()
+```
+
+You can learn more about dynamic inputs [here](/guides/advanced#dynamic-inputs).
 
 ---
 
@@ -161,7 +172,8 @@ sum = (a,b) => a+b
 
 ### Functions that return a texture
 
-```javascript
+```hydra
+// works properly on the editor
 circle = () => shape(64,.4,.1).scale(1,innerHeight/innerWidth)
 circle()
 	.out()
@@ -172,7 +184,8 @@ Another reason we would use a function in this example is that if we want to add
 
 Let's see how we could make the circle function more useful by adding parameters:
 
-```javascript 
+```hydra
+// works properly on the editor
 circle = (size,blur=.1)=> shape(64,size,blur)
                         .scale(1,()=>innerHeight/innerWidth)
 circle(.4)
@@ -181,51 +194,70 @@ circle(.4)
 ```
 
 Now, each time we call the circle function we can specify a size and blur. We can also omit the blur and the function will use the default value specified next to it. 
-We also changed the scaling to an arrow function, which you may find surprising if you haven't seen it before. When you use a function as an argument, Hydra will evaluate that function every time it renders a frame and use the return of that function in the rendering of that frame. In other words, functions can be used as dynamic inputs.
+We also changed the scaling to an arrow function, which you may find surprising if you haven't seen it before. When you use a function as an argument, Hydra will evaluate that function every time it renders a frame and use the return of that function in the rendering of that frame. In other words, functions can be used as [dynamic inputs](/guides/advanced#functions).
 
 ### Using declared functions as inputs
 
 As we just mentioned, we can use arrow functions inside the arguments of a given source or transform for it to react in real time. If you have many arguments using the same arrow function, you may want to declare it and reuse its name:
 
-```javascript
+```hydra
 scaling = () => .9+(Math.sin(time*2)/3)
 noise(3)
-  	.scale(scaling)
-	.layer(src(o0).scale(scaling).mask(shape()))
+	.scale(scaling)
+	.layer(
+		src(o0)
+			.scale(scaling)
+			.mask(shape())
+		)
 	.out()
 ```
 
 #### Calling declared functions from other functions
 
-Sometimes you want to reuse a function but have something change about it. For example, maybe we want to make the scaling negative for the feedback in the last example. But calling `-scaling` doesn't make sense, at least to JavaScript, since the negative of a function doesn't exist. But the negative of its return might:
+Sometimes you want to reuse a function but have something change about it. For example, maybe we want to make the scaling negative for the feedback in the last example. But calling `-scaling` doesn't make sense, at least to JavaScript, since the negative of a function doesn't exist. But the negative of its return does:
 
-```javascript
+```hydra
 scaling = () => .9+(Math.sin(time*2)/3)
 noise(3)
-  	.scale(scaling)
-	.layer(src(o0).scale(()=>-scaling()).mask(shape()))
+	.scale(scaling)
+	.layer(
+		src(o0)
+			.scale(()=>-scaling())
+			.mask(shape())
+		)
 	.out()
 ```
 
-You'll also come across this if your function has an input. For example: 
+##### Note on functions with parameters
+
+You'll also come across this if your function has parameters. For example:
+
 ```javascript
 scaling = (multiplier)=> (.9+(Math.sin(time*2)/3))*multiplier
 ```
+
 Doing `.scale(scaling)` doesn't make sense anymore, since you aren't giving it its necessary input. And if you try to do `.scale(scaling(-1))`, Hydra will evaluate the function once and use its return as the input to scale, instead of using a function which is what we want for the visual to react to the changes in time. The solution is, again, a function that calls your function, such as `.scale(()=>scaling(-1))`. If for some reason you hate arrow functions, you could also try [binding it](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) doing `.scale(scaling.bind(0,1))`.
 
 ### Higher-order functions
 
 Higher order functions just means functions that take other functions as arguments. These are useful when you want to make u new functions which take behavior from other functions. As an example, let's visualize applying a sine function (with some tweaks) to itself:
 
-```javascript
+```hydra
 fps=40
 twice = (func,...args) => func(func(...args))
 myFunc = (x)=> Math.sin(x*2)*2
+
 src(o0)
 	.luma(.02)
 	.mult(solid(),.02)
-	.add(shape(32,.02).scroll(0,()=>0.25+myFunc(time)/50,-.2))
-	.add(shape(32,.02).scroll(0,()=>-.25+twice(myFunc,time)/50,-.2))
+	.add(
+		shape(32,.02)
+			.scroll(0, ()=>0.25+myFunc(time)/50, -.2)
+		)
+	.add(
+		shape(32,.02)
+			.scroll(0, ()=>-.25+twice(myFunc,time)/50, -.2)
+		)
 	.out()
 ```
 
@@ -241,7 +273,7 @@ For example, if you ever use Hydra on instance mode, what you'll come across is 
 
 Let's see an example of how to declare and use an object with some properties:
 
-```javascript
+```hydra
 coords = {x: 0.25, y: 0.25} // this is how we declare an object with some properties
 shape(8,.1)
 	.scroll(coords.x,coords.y) // this is how we call properties
@@ -250,7 +282,7 @@ shape(8,.1)
 
 And now let's add a method:
 
-```javascript
+```hydra
 coords = {
     x: 0.25, 
     y: 0.25,
@@ -290,9 +322,10 @@ shape(4,.4).scale(1,screenRatio)
 	.out()
 ```
 
-There's also the less used `screenX` and `screenY` which will tell you the position of the window relative to the full screen. Try to resize the window and move it around with the following example:
+There's also the less used `screenX` and `screenY` which will tell you the position of the window relative to the full screen. 
+Try to move your browser's window with the following example:
 
-```javascript
+```hydra
 osc()
 	.rotate(()=>20+(screenX/300))
 	.out()
@@ -309,6 +342,6 @@ You can see the full list of functions and variables in the Math object [clickin
 
 One of the most useful predefined variables that the Math API has is the value of pi (well, an approximation considering that pi has infinite decimals). Many Hydra functions take radians as arguments which you may know are usually represented using multiples of pi. For example, if you want to rotate a texture exactly half a pi (90 degrees), you can do it as such:
 
-```
+```hydra
 osc().rotate(Math.PI/2).out()
 ```
