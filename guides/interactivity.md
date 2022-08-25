@@ -1,19 +1,25 @@
 # Interactivity Guide
 ---
 
+#### Note
+
+All of the examples using mouse position to move stuff on the canvas won't work well here, since the canvas doesn't occupy the full size of the screen as in the editor. Take this into account when we use `mouse`, that the positions are relative to the full webpage and not the canvas. This also means that as you scroll down this guide the `y` value will get higher and higher.
+
+---
+
 ## Using the mouse
 
 You can have your visuals react to the position of your mouse (or finger, in touch devices). Hydra has an object called `mouse` which stores and keeps track of the position of your mouse on the webpage.
 
 ### mouse.x & mouse.y
 
-```javascript
+```hydra
 gradient()
 	.hue(()=>mouse.x/3000)
-	.scale(1,1,()=>mouse.y/100)
+	.scale(1,1,()=>mouse.y/1000)
 	.out()
 ```
-
+|
 You can refer to the pixel position of your mouse by calling `mouse.x` and `mouse.y`, each one corresponding to the horizontal and vertical coordinates respectively. When we say 'pixel position', this means that the values you'll find stored in both x and y are represented in pixels. So for `mouse.x`, this means the amount of pixels from the left edge of your window to the position of your mouse. For `mouse.y`, this means the amount of pixels between the top end of your screen and the position of your mouse.
 
 Many times it will be most useful to use values relative to the size of the screen. And also to have values that exist between ranges more reasonable to the hydra functions you're using. For example [-0.5; 0.5] for scrollX and scrollY, [0; 2pi] for rotation, or [0; 1] for general purposes.
@@ -24,7 +30,7 @@ On Hydra, most values used are pretty small. So it will be way more useful to ha
 
 #### Getting values from 0 to 1
 
-```javascript
+```hydra
 x = () => mouse.x/innerWidth // 0→1
 y = () => mouse.y/innerHeight // 0→1
 osc()
@@ -41,7 +47,7 @@ On Hydra, things are placed between 0.5 and -0.5 (left to right, top to bottom).
 
 #### Getting values from 0 to ±0.5 from the center
 
-```javascript
+```hydra
 x = () => (-mouse.x/innerWidth)+.5 // 0.5→-0.5
 y = () => (-mouse.y/innerHeight)+.5 // 0.5→-0.5
 solid(255)
@@ -77,12 +83,14 @@ One of the key things you need to take into account when working with mouse and 
 
 #### Toggle transforms on click
 
-```javascript
+```hydra
 toggle = 0
 onclick = () => { toggle = toggle ? 0 : 1 }
 osc(30,.2,1.5)
 	.rotate(()=>toggle*Math.PI/2)
 	.out()
+
+onpointerup = null // ignore this for now
 ```
 Note that in JavaScript, you can pass any value as a boolean and JavaScript will try to interpret it in some way (search for truthy and falsy if you want to learn more). With numbers, `0` will act as `false` and any other number will act as `true`. We can make use of this to generate our toggling action.
 Fans of bitwise operators might implement the toggle as `toggle = toggle ^ 1`, where `^` means XOR.
@@ -90,7 +98,7 @@ Fans of bitwise operators might implement the toggle as `toggle = toggle ^ 1`, w
 ##### Pointer version
 
 We can simplify a click to be simply when any pointer is released (or pressed, whichever you prefer):
-```javascript 
+```hydra 
 onclick = null // getting rid of the conflicting click event
 //
 toggle = 0
@@ -103,7 +111,7 @@ Note that this example won't work if run after the previous one. Since both even
 
 #### Activate transforms while clicking
 
-```javascript
+```hydra
 press = 0
 onpointerdown = () => { press = 1 }
 onpointerup = () => { press = 0 }
@@ -116,7 +124,7 @@ Note how we make use of the ternary operator again to get arbitrarily different 
 
 #### Count the amount of clicks
 
-```javascript
+```hydra
 clicks = 1
 onpointerup = () => { clicks++ }
 noise(()=>clicks)
@@ -141,7 +149,7 @@ osc(15,.1,()=>pressedTime)
 
 Ok, now that we see how tedious it can be to use intervals, let's see how we can do this in a more Hydrated way. As we just said, we could try checking if the pointer is being pressed each time Hydra renders a frame. Coincidentally, the arrows functions we love to use as arguments for our functions, are checked by Hydra every frame! We could try writing the action that updates our `pressedTime` inside one:
 
-```javascript
+```hydra
 press = false
 onpointerdown = () => { press = true }
 onpointerup = () => { press = false }
@@ -155,7 +163,7 @@ There's another way of making Hydra run some functionality each frame, which is 
 #### Generating new patches on clicks
 
 Since outputting is simply a function call as any other. We can also try to evaluate patches when an event is triggered:
-```javascript
+```hydra
 textures = [noise(),osc(),osc(50).kaleid(),voronoi(),noise().thresh(0)]
 onpointerdown = () => {
 	osc(40,.05,Math.random()*2)
@@ -176,8 +184,8 @@ To use keyboard input, we can use `KeyboardEvent`'s such as `keydown`, `keyup`. 
 
 #### Moving stuff with the arrow keys
 
-Here either add or subtract one from our x and y values depending on which arrow key the user presses. Each representing one of the 2 dimensional axis'.
-```javascript
+Here either add or subtract one from our x and y values depending on which arrow key the user presses. Each representing one of the 2 dimensional axis.
+```hydra
 x = 0; y = 0;
 onkeyup = (event) => {
 	switch(event.key){
@@ -192,13 +200,15 @@ noise(6)
 	.scroll(()=>x/10,()=>y/10)
 	.sub(shape(4,.02).scroll(()=>x/10,()=>y/10),2)
 	.out()
+
+onpointerdown = null // getting rid of the previous listener
 ```
 
 #### Example: Typing shapes
 
 Here we use the `keyCode` of the last pressed key to change the shape being shown. This is a modification of ax example from the page about iteration. There we used ASCII codes to automatically generate shapes. However, ASCII and keyCodes of given letters are different!
 
-```javascript
+```hydra
 key = 25
 onkeydown = (e) => { key = e.keyCode }
 src(o0)
@@ -211,4 +221,7 @@ src(o0)
 			.rotate(()=>Math.PI*key/100)
 	)
 	.out()
+
+// type anything here:
+// 
 ```
