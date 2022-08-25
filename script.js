@@ -5,14 +5,14 @@
 class HydraApp extends Torus.StyledComponent {
   init() {
     this.canvas = document.createElement("CANVAS");
-    this.canvas.width = 512;
-    this.canvas.height = 512;
+    this.canvas.width = 360;
+    this.canvas.height = 360;
     this.hydra = new Hydra({
       canvas: this.canvas,
       detectAudio: false,
       enableStreamCapture: false,
-      width: 512,
-      height: 512,
+      width: 360,
+      height: 360,
     });
   }
   styles() {
@@ -87,7 +87,7 @@ class CodeMirrorApp extends Torus.StyledComponent {
 
     this.evalCode = c => {
       try {
-        let result = eval(c);
+        let result = window.eval(c);
         if (result === undefined) result = "";
         this.console = result;
         this.consoleClass = "normal";
@@ -167,12 +167,14 @@ class CodeMirrorApp extends Torus.StyledComponent {
       position: relative;
       background-color: #444;
       width: 100%;
-      height: 512px;
-      @media only screen and (max-width: 1200px) {
+      height: 360px;
+      max-width: 100%;
+      overflow-x: hidden;
+      @media only screen and (max-width: 1000px) {
         position: relative;
         height: 10em;
+        max-width: 360px;
       }
-      max-width: 512px;
       display: flex;
       flex-direction: column;
       .editor-menu {
@@ -194,6 +196,7 @@ class CodeMirrorApp extends Torus.StyledComponent {
         z-index: 1;
         width: 100%;
         background-color: black;
+        overflow: hidden;
       }
       .editor-console {
         position: absolute;
@@ -258,10 +261,9 @@ class CodeApp extends Torus.StyledComponent {
       (entries) => {
         if (entries[0].isIntersecting === true) {
           hush();
-          solid(0, 0, 0, 0).out(o0);
-          solid(0, 0, 0, 0).out(o1);
-          solid(0, 0, 0, 0).out(o2);
-          solid(0, 0, 0, 0).out(o3);
+          bpm = 30;
+          fps = undefined;
+          speed = 1;
           render(o0);
           setTimeout(() => {
             this.cmApp.commands.evalAll();
@@ -269,7 +271,7 @@ class CodeApp extends Torus.StyledComponent {
           this.placeholder.appendChild(hydraApp.node);
         }
       },
-      { threshold: [0.5] }
+      { rootMargin: "-50% 0% -50% 0%", threshold: [0] }
     );
 
     observer.observe(this.placeholder);
@@ -283,12 +285,12 @@ class CodeApp extends Torus.StyledComponent {
       box-sizing: border-box;
       position: relative;
       width: 100%;
-      margin: 100px 0;
+      margin: 75px 0;
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: stretch;
-      @media only screen and (max-width: 1200px) {
+      @media only screen and (max-width: 1000px) {
         flex-direction: column;
         flex-wrap: nowrap;
         align-items: center;
@@ -296,9 +298,9 @@ class CodeApp extends Torus.StyledComponent {
       }
       .placeholder {
         position: relative;
-        min-width: 512px;
-        width: 512px;
-        height: 512px;
+        min-width: 360px;
+        width: 360px;
+        height: 360px;
         // display: flex;
         // justify-content: center;
         // align-items: center;
@@ -308,7 +310,7 @@ class CodeApp extends Torus.StyledComponent {
         color: white;
         font-size: 1.25em;
         width: 100%;
-        max-width: 512px;
+        max-width: 360px;
       }
     `;
   }
