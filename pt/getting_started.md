@@ -300,7 +300,7 @@ shape(5).out(o1)
 ```
 
 
-Cobrimos agora todos os tipos básicos de funções dentro de Hydra: ***source***, ***geometry***, ***color***, ***blending***, e ***modulation***! See what you can come up with by mixing these together.
+Cobrimos agora todos os tipos básicos de funções dentro de Hydra: ***source***, ***geometry***, ***color***, ***blending***, e ***modulation***! Descubra onde você pode chegar combinando elas.
 
 
 #### Aproveite!
