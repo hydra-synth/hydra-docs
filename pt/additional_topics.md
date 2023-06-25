@@ -193,6 +193,6 @@ a.hide()
 ```
 ## MIDI (experimental)
 
-Controladores MIDI podem trabalhar com Hydra via WebMIDI. Um exemplo pode ser visto em [/docs/midi.md](https://github.com/ojack/hydra/blob/master/docs/midi.md) .
+Controladores MIDI podem trabalhar com Hydra via WebMIDI. Um exemplo pode ser visto em [/docs/midi.md](https://github.com/ojack/hydra/blob/master/docs/midi.md).
 
-Tradução por [A1219](https://github.com/a-1219) e [Vagné L.](https://github.com/muziekmutantti)
+*Tradução por [A1219](https://github.com/a-1219) e [Vagné L.](https://github.com/muziekmutantti)*

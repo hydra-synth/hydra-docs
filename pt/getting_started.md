@@ -41,7 +41,7 @@ osc().out()
 
 Isso cria um oscilador visual. Tente modificar os parâmetros do oscilador colocando um número dentro dos parênteses de `osc()`, por exemplo ```osc(10).out()```.
 
-Execute novamente o código pressionando o botão ***run*** novamente e vendo a atualização do visual. Tente adicionar outros valores para controlar a frequência, sincronização e deslocamento de cor do oscilador.
+Execute novamente o código pressionando o botão ***run*** novamente e vendo a atualização do visual. Tente adicionar outros valores para controlar os parâmetros `frequency` (frequência), `sync` (sincronização) e `color offset` (deslocamento de cor) do oscilador.
 
 ```hydra
 osc(5, -0.126, 0.514).out()
@@ -75,7 +75,7 @@ osc(5,-0.126,0.514).rotate(0, 0.2).kaleid().repeat().out()
 
 
 Para obter mais fontes e transformações disponíveis, consulte a [referência interativa de funções](https://hydra.ojack.xyz/api).
-A lógica é começar com uma ***source*** (como `osc()`, `shape()`, ou `noise()`), e depois adicionar transformações a ***geometry*** e ***cor*** (como `.rotate()`, `.kaleid()`, `.pixelate()` ), e no final sempre conecte a cadeia de transformações à tela de saída `.out()` .
+A lógica é começar com uma ***source*** (fonte) (como `osc()`, `shape()`, ou `noise()`), e depois adicionar transformações a ***geometry*** (geometria) e ***color*** (cor) (como `.rotate()`, `.kaleid()`, `.pixelate()`), e no final sempre conecte a cadeia de transformações à tela de saída `.out()` .
 
 
 ```hydra
@@ -99,8 +99,7 @@ shape(3).repeat(3, 2).scrollX(0, 0.1).out()
 ## Salve seu esboço na internet
 
 
-Ao avaliar todo o código com o botão ***run*** ou com `shift + ctrl + enter`, o Hydra gera automaticamente uma URL que contém as últimas alterações do seu esboço. Podemos copiar e colar o url da barra de URL para salvá-lo ou compartilhá-lo com outras pessoas. É possível também usar as setas para frente e para trás do navegador para navegar para versões anteriores de seu esboço.
-![](https://i.imgur.com/lV0rmoh.png)
+Ao avaliar todo o código com o botão ***run*** ou com `shift + ctrl + enter`, o Hydra gera automaticamente uma URL que contém as últimas alterações do seu esboço. Podemos copiar e colar o url da barra de URL para salvá-lo ou compartilhá-lo com outras pessoas. É possível também usar as setas `voltar` e `avançar` do navegador para navegar para versões anteriores de seu esboço.
 
 
 ## Usando a webcam
@@ -178,7 +177,7 @@ render(o0) //switch render output
 ```
 
 ## Combinando várias fontes juntas
-Podemos usar funções ***blend*** para combinar várias fontes visuais. `.blend()` combina as cores de duas fontes para criar uma terceira fonte.
+Podemos usar funções ***blend*** (mescla/mistura) para combinar várias fontes visuais. `.blend()` combina as cores de duas fontes para criar uma terceira fonte.
 
 ```hydra
 s0.initCam()
@@ -211,7 +210,7 @@ render() // renderiza todas as quatro saídas de uma vez
 
 
 ## Modulação
-Enquanto funções ***blend*** combinam as cores de duas fontes visuais, as funções ***modulate*** usam as cores de uma fonte para afetar a geometria da segunda fonte. Isso cria uma espécie de efeito de deformação ou distorção. Uma analogia no mundo real seria olhar através de uma janela de vidro texturizada. `modulate()` não altera cor ou luminosidade, mas distorce uma fonte visual usando outra fonte visual.
+Enquanto funções ***blend*** combinam as cores de duas fontes visuais, as funções ***modulate*** (modulação) usam as cores de uma fonte para afetar a geometria da segunda fonte. Isso cria uma espécie de efeito de deformação ou distorção. Uma analogia no mundo real seria olhar através de uma janela de vidro texturizada. `modulate()` não altera cor ou luminosidade, mas distorce uma fonte visual usando outra fonte visual.
 
 Usando as mesmas fontes acima, podemos usar um oscilador para modular ou distorcer a imagem da câmera:
 
@@ -306,4 +305,5 @@ Cobrimos agora todos os tipos básicos de funções dentro de Hydra: ***source**
 
 
 #### Aproveite!
-Tradução por [A1219](https://github.com/a-1219) e [Vagné L.](https://github.com/muziekmutantti)
+
+*Tradução por [A1219](https://github.com/a-1219) e [Vagné L.](https://github.com/muziekmutantti)*

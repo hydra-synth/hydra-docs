@@ -1,7 +1,7 @@
 # O que é Hydra?
 ![hydra](https://ojack.xyz/articles/hydra/thumb.png)
 
-Hydra é um sintetizador de vídeo para codificação ao vivo (livecoding) que funciona no navegador. É software livre e pode ser usado tanto por iniciantes como por profissionais. Desenvolvido por Olivia Jack. Você pode simplesmente abrir o [hydra web editor](https://hydra.ojack.xyz) em um laptop ou dispositivo móvel para começar.
+Hydra é um sintetizador de vídeo para codificação ao vivo (livecoding) que funciona no navegador. É software livre e pode ser usado tanto por iniciantes como por profissionais. Você pode simplesmente abrir o [hydra web editor](https://hydra.ojack.xyz) em um laptop ou dispositivo móvel para começar.
 
 Hydra é escrito em JavaScript e compila para WebGL por trás das cortinas. Sua sintaxe foi inspirada em sistemas analógicos e modulares de síntese de vídeo, onde são gerados visuais através da interconexão de sinais com diversas transformações.
 
@@ -15,8 +15,9 @@ Hydra é escrito em JavaScript e compila para WebGL por trás das cortinas. Sua 
 - transmitir vídeo entre navegadores e fazer jams online com outras pessoas
 
 #### Demais recursos e próximos passos
-Para mais instruções e informações, acesse: [a documentação interativa em português](getting_started), [uma lista de funções hydra (inglês)](https://hydra.ojack.xyz/api/), [a base de dados comunitária de projetos e tutoriais (inglês)](https://hydra.ojack.xyz/garden/), [uma galeria de sketches feitos por usuários](https://twitter.com/hydra_patterns), and [the source code on github](https://github.com/hydra-synth/hydra).
 
-Hydra é uma criação de [olivia jack](https://ojack.xyz) and is supported by a community of contributers. e é apoiado por uma comunidade de colaboradores. Se você gosta de usar o Hydra, considere por favor [incentivar seu desenvolvimento contínuo](https://opencollective.com/hydra-synth).
+Para mais instruções e informações, acesse: [a documentação interativa em português](getting_started.md), [uma lista de funções hydra (inglês)](https://hydra.ojack.xyz/api/), [a base de dados comunitária de projetos e tutoriais (inglês)](https://hydra.ojack.xyz/garden/), [uma galeria de sketches feitos por usuários](https://twitter.com/hydra_patterns) e o [código fonte no github](https://github.com/hydra-synth/hydra).
 
-Próximo: [Começando](getting_started)
+Hydra é uma criação de [olivia jack](https://ojack.xyz) apoiada por uma comunidade de colaboradores. Se você gosta de usar o Hydra, considere por favor [incentivar seu desenvolvimento contínuo](https://opencollective.com/hydra-synth).
+
+Próximo: [Começando](getting_started.md)
