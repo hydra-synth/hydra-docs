@@ -297,7 +297,6 @@ render()
 ```hydra
 osc().mult(src(o1)).out() // multiplica as fontes juntas
 shape(5).out(o1)
-
 ```
 
 
