@@ -1,21 +1,22 @@
-# What is Hydra?
+# O que é Hydra?
 ![hydra](https://ojack.xyz/articles/hydra/thumb.png)
 
-Hydra is live code-able video synth and coding environment that runs directly in the browser. It is free and open-source and made for beginners and experts alike. You can simply open the [hydra web editor](https://hydra.ojack.xyz) on a laptop or mobile device to get started.
+Hydra é um sintetizador de vídeo para codificação ao vivo (livecoding) que funciona no navegador. É software livre e pode ser usado tanto por iniciantes como por profissionais. Desenvolvido por Olivia Jack. Você pode simplesmente abrir o [hydra web editor](https://hydra.ojack.xyz) em um laptop ou dispositivo móvel para começar.
 
-Hydra is written in JavaScript and compiles to WebGL under the hood. The syntax is inspired by analog modular synthesis, in which chaining or patching a set of transformations together generates a visual result.
+Hydra é escrito em JavaScript e compila para WebGL por trás das cortinas. Sua sintaxe foi inspirada em sistemas analógicos e modulares de síntese de vídeo, onde são gerados visuais através da interconexão de sinais com diversas transformações.
 
-#### Hydra can be used: 
-- to mix and add effects to camera feeds, screenshares, live streams, and videos
-- to create generative and audio-reactive visuals, and share them online with others
-- in combination with other javascript libraries such as P5.js, Tone.js, THREE.js, or gibber
-- to add interactive video effects to a website
-- to experiment with and learn about video feedback, fractals, and pixel operations
-- to stream video between browsers and live-jam with others online
+#### Hydra pode ser usado para:
 
-#### Further resources and next steps
-For more information and instructions, see: [Getting Started](getting_started), [a list of hydra functions](https://hydra.ojack.xyz/api/), [the community database of projects and tutorials](https://hydra.ojack.xyz/garden/), [a gallery of user-generated sketches](https://twitter.com/hydra_patterns), and [the source code on github](https://github.com/hydra-synth/hydra).
+- mesclar e adicionar efeitos a imagens de uma câmera, uma captura de tela, transmissões ao vivo ou vídeos
+- criar visuais generativos e áudio reativos e compartilhar na internet com outras pessoas
+- combinar com outras bibliotecas de JavaScript, como p5.js, Tone.js, THREE.js ou gibber
+- adicionar efeitos de vídeo interativos em um website
+- experimentar e aprender sobre retroalimentação de vídeo (feedback), fractais e outras operações visuais
+- transmitir vídeo entre navegadores e fazer jams online com outras pessoas
 
-Hydra was created by [olivia jack](https://ojack.xyz) and is supported by a community of contributers. If you enjoy using Hydra, please consider [supporting continued development](https://opencollective.com/hydra-synth).
+#### Demais recursos e próximos passos
+Para mais instruções e informações, acesse: [a documentação interativa em português](getting_started), [uma lista de funções hydra (inglês)](https://hydra.ojack.xyz/api/), [a base de dados comunitária de projetos e tutoriais (inglês)](https://hydra.ojack.xyz/garden/), [uma galeria de sketches feitos por usuários](https://twitter.com/hydra_patterns), and [the source code on github](https://github.com/hydra-synth/hydra).
 
-Next: [Getting Started](getting_started)
+Hydra é uma criação de [olivia jack](https://ojack.xyz) and is supported by a community of contributers. e é apoiado por uma comunidade de colaboradores. Se você gosta de usar o Hydra, considere por favor [incentivar seu desenvolvimento contínuo](https://opencollective.com/hydra-synth).
+
+Próximo: [Começando](getting_started)

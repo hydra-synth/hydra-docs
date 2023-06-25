@@ -9,3 +9,5 @@
   * [Translation](/contributing_translation)
 * [Japanese | 日本語](/ja/README.md)
   * [使い方](/ja/getting_started.md)
+* [Portuguese | Português](/pt/README.md)
+  * [Começando](/pt/getting_started.md)

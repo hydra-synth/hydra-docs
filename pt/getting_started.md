@@ -1,81 +1,81 @@
-# Getting started
+# Começando
 
-This document is an introduction to making live visuals using Hydra. It covers the basics of writing code in the browser to generate and mix live video sources. No coding or video experience is necessary! 
+Este documento é uma introdução à criação de visuais ao vivo usando o Hydra. Abrange o básico da escrita de código no navegador para gerar e combinar fontes de vídeo em tempo real. Nenhuma experiência com programação ou vídeo é necessária!
 
-If you just want to start in 60 seconds you can also check:
-* [Getting started short version](https://hackmd.io/@r08UjGF3QMCfvNmdjuY7iQ/rJCpsbNNc)
+Quem quiser apenas começar em 60 segundos, também pode visitar:
+* [Getting started short version (inglês)](https://hackmd.io/@r08UjGF3QMCfvNmdjuY7iQ/rJCpsbNNc)
 
-This tutorial is meant to be used from within the [hydra web editor](https://hydra.ojack.xyz/). It is also interactive -- you can directly modify the code in each code block to see how it affects the visuals.  
+Este tutorial é pensado para ser usado dentro do [editor web hydra](https://hydra.ojack.xyz/). Também é interativo -- podemos alterar o código em cada bloco para ver como isso afeta os visuais.  
 
-### Get to know the browser editor
-To get started, open the the [hydra web editor](https://hydra.ojack.xyz/) in a separate window.   Close the top window by clicking the [x] in the top right. 
+### Conhecendo o editor do navegador
+Para começar, abra o [editor web hydra](https://hydra.ojack.xyz/) em uma janela separada. Feche a janela em destaque clicando no [x] no canto superior direito.
 
 ![](https://i.imgur.com/ZfgVjJZ.gif)
 
-You will see some colorful visuals in the background with text on top in the top left of the screen. The text is code that generates the visuals behind it. 
+Você verá alguns visuais coloridos em segundo plano com textos no canto superior esquerdo da tela. Este é o código que gera os visuais ao fundo.
 
-At the right up corner you will find a toolbar with these buttons: 
+No canto superior direito, você encontrará uma barra de ferramentas com estes botões:
 ![](https://i.imgur.com/iCG8Lrq.png)
-1. **run all code** Runs all code on the page (same as typing *ctrl+shift+enter)
-2. **upload to gallery** upload a sketch to Hydra's gallery and create a shorter URL
-3. **clear all** resets the environment and clears text from the editor
-4. **show random sketch**. Loads random sketch examples. Always it is a good way to learn Hydra by studying someone elses code.
-5. **make random change** **dices** modify values automatically. Try it with some of the sketch examples.
-6. **show info window** show overlay window with help text and links
+1. **run all code** Executa todo o código na página (tecla de atalho *ctrl+shift+enter)
+2. **upload to gallery** Carregue um esboço na galeria da Hydra e crie um curto URL
+3. **clear all** Redefine o ambiente e limpa o texto do editor
+4. **show random sketch**. Carrega exemplos de esboços aleatórios. Sempre é uma boa maneira de aprender Hydra estudando o código de outra pessoa.
+5. **make random change** **dices** Modificam valores automaticamente. Experimente com alguns dos exemplos de esboço.
+6. **show info window** Mostra janela de sobreposição com texto de ajuda e links
 
 
-## First line of code
+## Primeira linha de código
 
-Use the ***clear all button*** <img src="https://i.imgur.com/zQLjhBs.png" alt="drawing" width="40" style="display:inline;vertical-align:middle;"/>
-to erase the previous sketch.
+Use o botão ***clear all*** <img src="https://i.imgur.com/zQLjhBs.png" alt="drawing" width="40" style="display:inline;vertical-align:middle;"/>
+para apagar o esboço anterior.
 
-Then, type or paste the following in the editor:
+Em seguida, digite ou cole o seguinte no editor:
 ```javascript
 osc().out()
 ```
-Press the ***run button***  <img src="https://i.imgur.com/sm5d3VX.png" alt="drawing" width="40" style="display:inline;vertical-align:middle;"/> to run this code and update the visuals on the screen. You should see some scrolling stripes appear in the background.
+Aperte o botão ***run***  <img src="https://i.imgur.com/sm5d3VX.png" alt="drawing" width="40" style="display:inline;vertical-align:middle;"/> para executar este código e atualizar os visuais. Você verá algumas listras rolando na tela.
 
 ```hydra
 osc().out()
 ```
 
-This creates a visual oscillator. Try modifying the parameters of the oscillator by putting a number inside the parentheses of `osc()`, for example ```osc(10).out()```.
+Isso cria um oscilador visual. Tente modificar os parâmetros do oscilador colocando um número dentro dos parênteses de `osc()`, por exemplo ```osc(10).out()```.
 
-Re-run the code by pressing the ***run button*** again, and seeing the visuals update. Try adding other values to control the oscillator's `frequency`, `sync`, and `color offset`.
+Execute novamente o código pressionando o botão ***run*** novamente e vendo a atualização do visual. Tente adicionar outros valores para controlar a frequência, sincronização e deslocamento de cor do oscilador.
 
 ```hydra
 osc(5, -0.126, 0.514).out()
 ```
 
 
-*Trick: you can also use the keyboard shortcut **‘ctrl + shift + enter’** to have the same effect as the run button.*
+*Dica: você também pode usar o atalho* **‘ctrl + shift + enter’** *para ter o mesmo efeito do botão executar.*
 
 
-## Adding transformations
-We can add another transformation to the oscillator from above, by adding the function `rotate()` after the oscillator:
+## Adicionando transformações
+Podemos adicionar outra transformação ao oscilador acima, adicionando a função `rotate()` depois do oscilador:
 ```hydra
 osc(5,-0.126,0.514).rotate().out()
 ```
 
-As you can see, you have first an input source `osc()` and things that come after (`rotate()` and `out()`) are connected with a dot ‘.’
-In this sense, Hydra is inspired by [modular synthesis](https://en.wikipedia.org/wiki/Modular_synthesizer).
-Instead of connecting cables you connect different kinds of javascript functions.  
+Como você pode ver, temos primeiro uma fonte de entrada `osc()` ae as coisas que vêm depois (`rotate()` and `out()`) são conectadas com um ponto ‘.’
+Nesse sentido, Hydra é inspirado por [síntese modular](https://en.wikipedia.org/wiki/Modular_synthesizer) (inglês).
+Em vez de conectar cabos, você conecta diferentes tipos de funções javascript.  
 ![](https://i.imgur.com/RBRxeiL.jpg)
-###### source [Sandin Image Processor](https://en.wikipedia.org/wiki/Sandin_Image_Processor)
+###### fonte [Sandin Image Processor](https://en.wikipedia.org/wiki/Sandin_Image_Processor)
 
-You can continue adding transformations to this chain of functions. For example:  
+Podemos continuar adicionando transformações a esta cadeia de funções. Por exemplo:  
 ```hydra
 osc(5,-0.126,0.514).rotate(0, 0.2).kaleid().out()
 ```
 
-Repeat: 
+Repetir:
 ```hydra
 osc(5,-0.126,0.514).rotate(0, 0.2).kaleid().repeat().out()
 ```
 
 
-For more available sources and transformations, see the [interactive function reference](https://hydra.ojack.xyz/api). 
-The logic is to start with a ***source*** (such as `osc()`, `shape()`, or `noise()`), and then add transformations to ***geometry*** and ***color*** (such as `.rotate()`, `.kaleid()`, `.pixelate()` ), and in the end always connect the chain of transformations to the output screen `.out()` .
+Para obter mais fontes e transformações disponíveis, consulte a [referência interativa de funções](https://hydra.ojack.xyz/api).
+A lógica é começar com uma ***source*** (como `osc()`, `shape()`, ou `noise()`), e depois adicionar transformações a ***geometry*** e ***cor*** (como `.rotate()`, `.kaleid()`, `.pixelate()` ), e no final sempre conecte a cadeia de transformações à tela de saída `.out()` .
 
 
 ```hydra
@@ -87,36 +87,37 @@ shape(3).repeat(3, 2).scrollX(0, 0.1).out()
 ```
 
 
-## What is an error? 
-Sometimes, you will try to run a line of code, and nothing will happen. If you have an error you’ll notice text in red at the left-bottom on your screen. Something like ‘Unexpected token ‘.’ (in red) will appear. This doesn’t affect your code, but you won’t be able to continue coding until you fix the error. Usually it is a typing error or something related to the syntax. 
+## O que é um erro?
+Às vezes, você tentará executar uma linha de código e nada acontecerá. Se você tiver um erro, notará um texto em vermelho na parte inferior esquerda da tela. Algo como ‘Unexpected token ‘.’ (em vermelho) aparecerá. Isso não afeta seu código, mas você não poderá continuar codificando até corrigir o erro. Geralmente é um erro de digitação ou algo relacionado à sintaxe.
 
-## What is a comment?
+## O que é um comentário?
 
 ```javascript
-// Hello I’m a comment line. I’m a text that won’t change your code. You can write notations, your name or even a poem here.
+// Olá, sou uma linha de comentários. Eu sou um texto que não vai mudar o seu código. Você pode escrever anotações, seu nome ou até mesmo um poema aqui.
 ```
 
-## Save your sketch on the internet
+## Salve seu esboço na internet
 
 
-When you evaluate the entire code with the ***run button*** or with `shift + ctrl + enter`, Hydra automatically generates a URL that contains the last changes of your sketch. You can copy and paste the url from the URL bar to save it or share it with other people. You can also use the browser `back` and `forward` arrows to navigate to earlier versions of your sketch. 
+Ao avaliar todo o código com o botão ***run*** ou com `shift + ctrl + enter`, o Hydra gera automaticamente uma URL que contém as últimas alterações do seu esboço. Podemos copiar e colar o url da barra de URL para salvá-lo ou compartilhá-lo com outras pessoas. É possível também usar as setas para frente e para trás do navegador para navegar para versões anteriores de seu esboço.
 ![](https://i.imgur.com/lV0rmoh.png)
 
 
-## Using the webcam
-In addition to using sources from within hydra (such as `osc()` and `shape()`), you can use hydra to process external video sources such as a webcam. To initialize the webcam, run the following code:
+## Usando a webcam
+Além de usar fontes de dentro do Hydra (como `osc()` e `shape()`), podemos usar o Hydra para processar fontes de vídeo externas, como uma webcam.
+Para inicializar a webcam, execute o seguinte código:
 ```javascript
 s0.initCam()
 ```
 
-This activates the webcam source inside a variable called `s0`, and you should see the light on your webcam light up. However, you will still not see the webcam image on the screen. In order to use the camera within a hydra sketch, you need to use it within the `src()` function. 
+Isso ativa a fonte da webcam dentro de uma variável chamada `s0`, e você deve ver a luz da sua webcam acender. No entanto, você ainda não verá a imagem da webcam na tela. Para usar a câmera em um esboço Hydra, você precisa usá-la dentro da função `src()`.
 
 ```hydra
-s0.initCam() //initialize webcam as external source 's0'
-src(s0).out() // use external source 's0' inside Hydra
+s0.initCam() // inicializa a webcam como fonte externa 's0'
+src(s0).out() // usa a fonte externa 's0' dentro do Hydra
 ```
 
-Similar to adding transformations above, you can add transformations of color and geometry to the camera output, by adding functions to the chain:
+Semelhante à adição de transformações acima, podemos adicionar transformações de cor e geometria à saída da câmera, adicionando funções à cadeia:
 
 ```hydra
 s0.initCam()
@@ -128,146 +129,146 @@ s0.initCam()
 src(s0).color(-1, 1).kaleid().out()
 ```
 
-If you have multiple webcams, you can access separate cameras by adding a number inside `initCam`, for example `s0.initCam(1)` or `s0.initCam(2)`. 
+Caso tenha várias webcams, poderá acessá-las separadamente adicionando um número dentro de `initCam`, por exemplo `s0.initCam(1)` ou `s0.initCam(2)`.
 
 
 
 
-## Multiple outputs 
+## Saídas múltiplas
 
-By default, hydra contains four separate virtual outputs that can each render different visuals, and can be mixed with each other to create more complex visuals. The variables `o0`, `o1`, `o2`, and `o3` correspond to the different outputs. 
+Por padrão, o Hydra contém quatro saídas virtuais separadas que podem renderizar visuais diferentes e ser misturadas entre si para criar visuais mais complexos. As variáveis `o0`, `o1`, `o2` e `o3` correspondem às diferentes saídas.
 
-To see all four of the outputs at once, use the `render()` function. This will divide the screen into four, showing each output in a different section of the screen. 
+Para ver todas as quatro saídas de uma vez, use a função `render()`. Isso dividirá a tela em quatro, mostrando cada saída em uma seção diferente da tela.
 
 ![](https://i.imgur.com/m5Q0Na6.jpg)
 
-Using a different variable inside the `.out()` function renders the chain to a different output. For example, `.out(o1)` will render a function chain to graphics buffer `o1`. 
+Usar uma variável diferente dentro da função `.out()` renderiza a cadeia para uma saída diferente. Por exemplo, `.out(o1)` renderizará uma cadeia de funções para o buffer gráfico `o1`.
 
 
 ```hydra
-gradient(1).out(o0) // render a gradient to output o0
-osc().out(o1) // render voronoi to output o1
-voronoi().out(o2) // render voronoi to output o2
-noise().out(o3)  // render noise to output o3
+gradient(1).out(o0) // renderiza um gradiente para saída o0
+osc().out(o1) // renderiza voronoi para saída o1
+voronoi().out(o2) // renderiza voronoi na saída o2
+noise().out(o3) // renderiza ruído na saída o3
 
-render()  // show all outputs
+render()  // mostra todas as saídas
 ```
 
-By default, only output `o0` is rendered to the screen, while the `render()` command divides the screen in four. Show a specific output on the screen by adding it inside of `render()`, for example `render(o2)` to show buffer `o2`.
+Por padrão, apenas a saída `o0` é renderizada na tela, enquanto o comando `render()` divide a tela em quatro. Mostre uma saída específica na tela adicionando-a dentro de `render()`, por exemplo, `render(o2)` para mostrar o buffer `o2`.
 
 
 ```hydra
-gradient(1).out(o0) // render a gradient to output o0
-osc().out(o1) // render voronoi to output o1
-voronoi().out(o2) // render voronoi to output o2
-noise().out(o3)  // render noise to output o3
+gradient(1).out(o0) // renderiza um gradiente para saída o0
+osc().out(o1) // renderiza voronoi para saída o1
+voronoi().out(o2) // renderiza voronoi na saída o2
+noise().out(o3) // renderiza ruído na saída o3
 
-render(o2)  // show only output o2
+render(o2)  // mostra apenas a saída o2
 ```
 
 
-*Trick: try to create different sketches and switch them in your live performance or even combine them.*
+*Dica: tente criar esboços diferentes e trocá-los em sua performance ao vivo ou até mesmo combiná-los.*
 
 
 ```hydra
 gradient(1).out(o0)
 osc().out(o1)
 render(o0) //switch render output
-// render(o1) 
+// render(o1)
 ```
 
-## Blending multiple visual sources together
-You can use ***blend*** functions to combine multiple visual sources. `.blend()` combines the colors from two sources to create a third source. 
+## Combinando várias fontes juntas
+Podemos usar funções ***blend*** para combinar várias fontes visuais. `.blend()` combina as cores de duas fontes para criar uma terceira fonte.
 
 ```hydra
 s0.initCam()
 
-src(s0).out(o0) // render the webcam to output o0
+src(s0).out(o0) // renderiza a webcam na saída o0
 
-osc(10).out(o1) // render an oscillator to output o1
+osc(10).out(o1) // renderiza um oscilador na saída o1
 
-src(o0).blend(o1).out(o2) // start with o0, mix it with o1, and send it out to o2
+src(o0).blend(o1).out(o2) // começa com o0, mistura com o1 e envia para o2
 
-render() // render all four outputs at once
+render() // renderiza todas as quatro saídas de uma vez
 ```
 
-Try adding transformations to the above sources (such as `osc(10).rotate(0, 0.1).out(o1)`) to see how it affects the combined image. You can also specify the amount of blending by adding a separate parameter to `.blend()`, for example `.blend(o1, 0.9)`. 
+Tente adicionar transformações às fontes acima (como `osc(10).rotate(0, 0.1).out(o1)`) para ver como isso afeta a imagem combinada. Podemos também especificar a quantidade de mistura adicionando um parâmetro separado a `.blend()`, por exemplo `.blend(o1, 0.9)`.
 
-There are multiple [blend modes](https://en.wikipedia.org/wiki/Blend_modes) in hydra, similar to blend modes you might find in a graphics program such as photoshop or gimp. See [the function reference](https://hydra.ojack.xyz/api/) for more possibilities. 
+Há vários [modos de mescla](https://en.wikipedia.org/wiki/Blend_modes) (inglês) em Hydra, semelhantes aos modos de mesclagem que você pode encontrar em um programa gráfico como Photoshop ou GIMP. Veja a [referência de funções](https://hydra.ojack.xyz/api/) para mais possibilidades.
+
+```hydra
+
+s0.initCam()
+
+src(s0).out(o0) // renderiza a webcam na saída o0
+
+osc(10).out(o1) // renderiza um oscilador na saída o1
+
+src(o0).diff(o1).out(o2) // combina sinais diferentes por diferença de cor (as partes escuras ficam invertidas).
+
+render() // renderiza todas as quatro saídas de uma vez
+```
+
+
+## Modulação
+Enquanto funções ***blend*** combinam as cores de duas fontes visuais, as funções ***modulate*** usam as cores de uma fonte para afetar a geometria da segunda fonte. Isso cria uma espécie de efeito de deformação ou distorção. Uma analogia no mundo real seria olhar através de uma janela de vidro texturizada. `modulate()` não altera cor ou luminosidade, mas distorce uma fonte visual usando outra fonte visual.
+
+Usando as mesmas fontes acima, podemos usar um oscilador para modular ou distorcer a imagem da câmera:
 
 ```hydra
 s0.initCam()
 
-src(s0).out(o0) // render the webcam to output o0
+src(s0).out(o0) // renderiza a webcam na saída o0
+osc(10).out(o1) // renderiza um oscilador na saída o1
 
-osc(10).out(o1) // render an oscillator to output o1
+src(o0).modulate(o1).out(o2) // usa a fonte o1 para distorcer a fonte o0, áreas mais claras são distorcidas mais
 
-src(o0).diff(o1).out(o2) // combine different signals by color difference (dark portions become inverted).
-
-render() // render all four outputs at once
+render() // renderiza todas as quatro saídas de uma vez
 ```
 
+Você pode adicionar um segundo parâmetro à função `modulate()` para controlar a quantidade de distorção: `modulate(o1, 0.9)`. Neste caso, os canais vermelho e verde do oscilador estão sendo convertidos em deslocamento x e y da imagem da câmera.
 
-## Modulation
-While ***blend*** functions combine the colors from two visual sources, ***modulate*** functions use the colors from one source to affect the ***geometry*** of the second source. This creates a sort of warping or distorting effect. An analogy in the real world would be looking through a texture glass window.
-`modulate()` does not change color or luminosity but distorts one visual source using another visual source.
-
-Using the same sources from above, we can use an oscillator to modulate or warp the camera image: 
+Todas as transformações de geometria têm funções de modulação correspondentes que permitem usar uma fonte para distorcer outra fonte. Por exemplo, `modulateRotate()` é semelhante a `rotate()`, porém nos permite aplicar diferentes intensidades de rotação em diferentes partes da fonte visual. Veja a [referência de funções](https://hydra.ojack.xyz/api/) para mais exemplos.
 
 ```hydra
 s0.initCam()
 
-src(s0).out(o0) // render the webcam to output o0
-osc(10).out(o1) // render an oscillator to output o1
+src(s0).out(o0) // renderiza a webcam na saída o0
+osc(10).out(o1) // renderiza um oscilador na saída o1
 
-src(o0).modulate(o1).out(o2) // use source o1 to distort source o0, lighter areas are distorted more
+src(o0).modulateRotate(o1, 2).out(o2)
 
-render() // render all four outputs at once
+render() // renderiza todas as quatro saídas de uma vez
 ```
 
-You can add a second parameter to the `modulate()` function to control the amount of warping:  `modulate(o1, 0.9)`. In this case, the red and green channels of the oscillator are being converted to x and y displacement of the camera image. 
+## Mais combinações e modulações
 
-All ***geometry*** transformations have corresponding ***modulate*** functions that allow you to use one source to warp another source. For example, `.modulateRotate()` is similar to `.rotate()`, but it allows you to apply different amounts of rotation to different parts of the visual source. See [the function reference](https://hydra.ojack.xyz/api/) for more examples. 
-
-```hydra
-s0.initCam()
-
-src(s0).out(o0) // render the webcam to output o0
-osc(10).out(o1) // render an oscillator to output o1
-
-src(o0).modulateRotate(o1, 2).out(o2) // 
-
-render() // render all four outputs at once
-```
-
-## More blending and modulating
-
-In addition to using multiple outputs to combine visuals, you can also combine multiple sources within the same function chain, without rendering them to separate outputs.
+Além de usar várias saídas para juntar imagens, podemos também pode combinar várias fontes dentro da mesma cadeia de funções, sem transformá-las em saídas separadas.
 
 ```hydra
 osc(10, 0.1, 1.2).blend(noise(3)).out(o0)
 
-render(o0) // render output o0
+render(o0) // renderiza a saída o0
 ```
 
-This allows you to use many sources, blend modes, and modulation, all from within the same chain of functions. 
+Isto permite utilizar muitas fontes, modos de combinação e modulação, tudo a partir da mesma cadeia de funções.
 
 ```hydra
 osc(10, 0.1, 1.2).blend(noise(3)).diff(shape(4, 0.6).rotate(0, 0.1)).out()
 ```
 
-*Trick: use `ctrl + shift + f` from the web editor to auto-format your code*
+*Dica: use `ctrl + shift + f` no editor web para formatar automaticamente seu código.*
 
-#### Modulating with the camera
+#### Modulando com a câmera
 ```hydra
-s0.initCam() //loads a camera
+s0.initCam() // carrega uma câmera
 
-shape().modulate(src(s0)).out() //shape modulated by a camera
+shape().modulate(src(s0)).out() // forma modulada por uma câmera
 ```
 ```hydra
-s0.initCam() //loads a camera
+s0.initCam() // carrega uma câmera
 
-src(s0).modulate(shape()).out() //camera modulated by a shape
+src(s0).modulate(shape()).out() //câmera modulada por uma forma
 ```
 
 
@@ -280,9 +281,9 @@ src(s0).modulate(shape()).out() //camera modulated by a shape
 noise().out(o1)
 shape().out(o3)
 
-src(o1).add(src(o3)).out(o2) //additive light. Color only gets brighter
+src(o1).add(src(o3)).out(o2) // luz aditiva. A cor apenas fica mais brilhante
 
-render() 
+render()
 ```
 
 ```hydra
@@ -290,20 +291,19 @@ osc(10).out(o0)
 
 shape().out(o1)
 
-src(o0).diff(o1).out(o2) // combines different signals by color difference (color negative/inverted/opposite).  
+src(o0).diff(o1).out(o2) // combine diferentes sinais por diferença de cor (cor negativa/invertida/oposta).  
 
 render()
 ```
 ```hydra
-osc().mult(src(o1)).out() // multiplies the sources together, 
+osc().mult(src(o1)).out() // multiplica as fontes juntas
 shape(5).out(o1)
 
 ```
 
 
-We have now covered all of the basic types of functions within hydra: ***source***, ***geometry***, ***color***, ***blending***, and ***modulation***! See what you can come up with by mixing these together. 
+Cobrimos agora todos os tipos básicos de funções dentro de Hydra: ***source***, ***geometry***, ***color***, ***blending***, e ***modulation***! See what you can come up with by mixing these together.
 
 
-#### Have fun!
-
-
+#### Aproveite!
+Tradução por [A1219](https://github.com/a-1219) e [Vagné L.](https://github.com/muziekmutantti)
