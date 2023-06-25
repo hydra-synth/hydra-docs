@@ -16,18 +16,18 @@ Você verá alguns visuais coloridos em segundo plano com textos no canto superi
 
 No canto superior direito, você encontrará uma barra de ferramentas com estes botões:
 ![](https://i.imgur.com/iCG8Lrq.png)
-1. **run all code** Executa todo o código na página (tecla de atalho *ctrl+shift+enter)
-2. **upload to gallery** Carregue um esboço na galeria da Hydra e crie um curto URL
-3. **clear all** Redefine o ambiente e limpa o texto do editor
-4. **show random sketch**. Carrega exemplos de esboços aleatórios. Sempre é uma boa maneira de aprender Hydra estudando o código de outra pessoa.
-5. **make random change** **dices** Modificam valores automaticamente. Experimente com alguns dos exemplos de esboço.
-6. **show info window** Mostra janela de sobreposição com texto de ajuda e links
+1. **Executar tudo** executa todo o código na página (tecla de atalho *ctrl+shift+enter).
+2. **Fazer upload para a galeria** envia o sketch para a galeria da Hydra e cria um curto URL.
+3. **Limpar editor** redefine o ambiente e limpa o texto do editor.
+4. **Mostrar um sketch aleatório** carrega exemplos de esboços aleatórios. Sempre é uma boa maneira de aprender Hydra estudando o código de outra pessoa.
+5. **Aplicar mudanças aleatórias** modifica valores automaticamente. Experimente com alguns dos exemplos de esboço.
+6. **Mostrar janela de informação** mostra uma janela em sobreposição com texto de ajuda e links
 
 
 ## Primeira linha de código
 
 Use o botão ***clear all*** <img src="https://i.imgur.com/zQLjhBs.png" alt="drawing" width="40" style="display:inline;vertical-align:middle;"/>
-para apagar o esboço anterior.
+para apagar o sketch anterior.
 
 Em seguida, digite ou cole o seguinte no editor:
 ```javascript
@@ -57,7 +57,7 @@ Podemos adicionar outra transformação ao oscilador acima, adicionando a funç�
 osc(5,-0.126,0.514).rotate().out()
 ```
 
-Como você pode ver, temos primeiro uma fonte de entrada `osc()` ae as coisas que vêm depois (`rotate()` and `out()`) são conectadas com um ponto ‘.’
+Como você pode ver, temos primeiro uma fonte de entrada `osc()` ae as coisas que vêm depois (`rotate()` and `out()`) são conectadas com um ponto '.'
 Nesse sentido, Hydra é inspirado por [síntese modular](https://en.wikipedia.org/wiki/Modular_synthesizer) (inglês).
 Em vez de conectar cabos, você conecta diferentes tipos de funções javascript.  
 ![](https://i.imgur.com/RBRxeiL.jpg)
@@ -74,8 +74,8 @@ osc(5,-0.126,0.514).rotate(0, 0.2).kaleid().repeat().out()
 ```
 
 
-Para obter mais fontes e transformações disponíveis, consulte a [referência interativa de funções](https://hydra.ojack.xyz/api).
-A lógica é começar com uma ***source*** (fonte) (como `osc()`, `shape()`, ou `noise()`), e depois adicionar transformações a ***geometry*** (geometria) e ***color*** (cor) (como `.rotate()`, `.kaleid()`, `.pixelate()`), e no final sempre conecte a cadeia de transformações à tela de saída `.out()` .
+Para obter mais fontes e transformações disponíveis, consulte a [referência interativa de funções (inglês)](https://hydra.ojack.xyz/api).
+A lógica é começar com uma ***source*** (fonte) (como `osc()`, `shape()`, ou `noise()`), e depois adicionar transformações a ***geometry*** (geometria) e ***color*** (cor) (como `.rotate()`, `.kaleid()`, `.pixelate()`), e no final sempre conecte a cadeia de transformações à tela de saída `.out()`.
 
 
 ```hydra
@@ -193,7 +193,7 @@ render() // renderiza todas as quatro saídas de uma vez
 
 Tente adicionar transformações às fontes acima (como `osc(10).rotate(0, 0.1).out(o1)`) para ver como isso afeta a imagem combinada. Podemos também especificar a quantidade de mistura adicionando um parâmetro separado a `.blend()`, por exemplo `.blend(o1, 0.9)`.
 
-Há vários [modos de mescla](https://en.wikipedia.org/wiki/Blend_modes) (inglês) em Hydra, semelhantes aos modos de mesclagem que você pode encontrar em um programa gráfico como Photoshop ou GIMP. Veja a [referência de funções](https://hydra.ojack.xyz/api/) para mais possibilidades.
+Há vários [modos de mescla (inglês)](https://en.wikipedia.org/wiki/Blend_modes) em Hydra, semelhantes aos modos de mesclagem que você pode encontrar em um programa gráfico como Photoshop ou GIMP. Veja a [referência de funções (inglês)](https://hydra.ojack.xyz/api/) para mais possibilidades.
 
 ```hydra
 
